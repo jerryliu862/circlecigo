@@ -8,11 +8,11 @@ workflows:
 jobs:
   test:
     docker:
-      - image: cimg/go:1.18
+      - image: cimg/go:1.18-browsers
     steps:
       - checkout 
       - run: go mod download
       - run: go build -o app
       - run: 
           command: ./app
-          timeout: 120
+          background: true
