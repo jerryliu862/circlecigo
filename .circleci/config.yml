@@ -11,7 +11,6 @@ jobs:
       - image: cimg/go:1.18
     steps:
       - checkout 
-      - run: apk --no-cache add git
       - run: go mod download
       - run: go build -o app
       - run: ./app
