@@ -13,4 +13,6 @@ jobs:
       - checkout 
       - run: go mod download
       - run: go build -o app
-      - run: ./app
+      - run: 
+          command: ./app
+          timeout: 120
