@@ -8,7 +8,10 @@ workflows:
 jobs:
   test:
     docker:
-      - image: cimg/node:16.14.2
+      - image: cimg/go:1.18
     steps:
       - checkout 
-      - run: node --version 
+      - run: apk --no-cache add git
+      - run: go mod download
+      - run: go build -o app
+      - run: ./app
