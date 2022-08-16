@@ -1,0 +1,17 @@
+DROP FUNCTION IF EXISTS BIN_TO_UUID;
+
+DELIMITER //
+CREATE FUNCTION BIN_TO_UUID (
+    bin BINARY(16)
+) RETURNS CHAR(36) DETERMINISTIC
+BEGIN  
+  RETURN LOWER(CONCAT(
+    LEFT(HEX(bin), 8), '-',
+    MID(HEX(bin), 9, 4), '-',
+    MID(HEX(bin), 13, 4), '-',
+    MID(HEX(bin), 17, 4), '-',
+    RIGHT(HEX(bin), 12)
+  ));  
+END //
+
+DELIMITER ;

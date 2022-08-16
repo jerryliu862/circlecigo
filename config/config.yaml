@@ -1,0 +1,72 @@
+port: 8080
+mode: "debug"
+
+database:
+  username: "17liveDev"
+  password: "17liveDev53117492"
+  host: "114.34.8.167"
+  port: "3366"
+  name: "17Live_WSO_Dev"
+
+jwt:
+  hmac: "hmac20220326"
+  issuer: "17live"
+  expiredHour: 72
+
+user:
+  admin: "system@17.media"
+  domains:
+    - "17.media"
+    - "17.live"
+    - "4idps.com"
+
+google:
+  endpoint: "https://www.googleapis.com/oauth2/v3/userinfo"
+  tokenQuery: "access_token"
+
+email:
+  sender: "notification-outsourcing@17.live"
+  senderName: "17Live"
+  apiKey: "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"
+  content:
+    noRegion:
+      subject: "[Notification] Event Bonus Calculation Tool 系統目前有未知區域的 Campaign"
+      plainText: "Dear Administrator,\r\n\"Event Bonus Calculation Tool\" 系統目前有未知區域的 Campaign, 請至系統進行設定\r\nThe \"Event Bonus Calculation Tool\" system currently has campaigns in unknown region, please go assign the region on the system.\r\nCampaign: ?\r\n謝謝!"
+      htmlText: "Dear Administrator,<br><br>\"Event Bonus Calculation Tool\" 系統目前有未知區域的 Campaign, 請至系統進行設定<br><br>The \"Event Bonus Calculation Tool\" system currently has campaigns in unknown region, please go assign the region on the system.<br><br>Campaign: ?<br><br>謝謝!"
+    syncDataFinish:
+      subject: "[Notification] Event Bonus Calculation Tool 系統資料同步已完成"
+      plainText: "Dear User,\r\nThe \"Event Bonus Calculation Tool\" system has completed the data sync process.\r\nThanks!"
+      htmlText: "Dear User,<br><br>The \"Event Bonus Calculation Tool\" system has completed the data sync process.<br><br>Thanks!"
+
+media:
+  authentication:
+    server: "https://sta-wap-api.17app.co/api/v1"
+    path: "/oauth/token"
+    clientID: "26RyTOj1YJK9hTMFf7Bq9IhsAVM"
+    secret: "c185f323bb956b0cb12fb03729bab8ba0abff288"
+  campaign:
+    server: "https://stag-fireant.17app.co/api/v1"
+    path: "/eventory/decoCampaigns"
+    tokenHeaderKey: "access-token"
+    token: "p78lczdj-3anu-ywd7-0nh2-2bphs97iiq4t"
+    statusQuery: "status"
+    statusValue: "2"
+    limitQuery: "limit"
+    limitValue: "100"
+  leaderboard:
+    server: "https://stag-fireant.17app.co/api/v1"
+    path: "/eventory/leaderboards/?/records"
+    tokenHeaderKey: "access-token"
+    token: "p78lczdj-3anu-ywd7-0nh2-2bphs97iiq4t"
+    cursorQuery: "cursor"
+    cursorValue: ""
+    countQuery: "count"
+    countValue: "100"
+  streamer:
+    server: "https://sta-wap-api.17app.co/api/v1"
+    path: "/liver/streamer/?/query"
+    tokenHeaderKey: "Authorization"
+  streamerContract:
+    server: "https://sta-wap-api.17app.co/api/v1"
+    path: "/liver/contract/?/query"
+    tokenHeaderKey: "Authorization"

@@ -1,0 +1,18 @@
+DROP FUNCTION IF EXISTS fn_GetUserName;
+
+DELIMITER //
+CREATE FUNCTION fn_GetUserName (
+    uid INT
+) RETURNS VARCHAR(255) DETERMINISTIC
+BEGIN
+  DECLARE result VARCHAR(255);
+  
+  SELECT name
+  INTO result
+  FROM User
+  WHERE id = uid;
+  
+  RETURN result;
+END //
+
+DELIMITER ;
